@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 
 /*app.use((req, res, next) => {
@@ -11,7 +12,7 @@ app.use((req, res) => {
   res.send("<h1>Middleware</h1>");
 });*/
 
-app.use("/about/:aboutid/users/:username", (req, res) => {
+/*app.use("/about/:aboutid/users/:username", (req, res) => {
   console.log(req.params);
   res.send("<h1>about details</h1>");
 });
@@ -21,6 +22,20 @@ app.use("/about", (req, res) => {
 app.use("/", (req, res) => {
   res.send("<h1>home page</h1>");
 });
+*/
+app.use("/libs", express.static(path.join(__dirname, "node_modules")));
+app.use("/static", express.static(path.join(__dirname, "public")));
+
+app.use("/blogs/:blogid", (req, res) => {
+  res.sendFile(path.join(__dirname, "/views/users", "blog-details.html"));
+});
+app.use("/blogs", (req, res) => {
+  res.sendFile(path.join(__dirname, "/views/users", "blogs.html"));
+});
+app.use("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "/views/users", "index.html"));
+});
+
 app.listen(3000, () => {
   console.log("listening on port 3000");
 });
