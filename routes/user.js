@@ -1,14 +1,14 @@
 const express = require("express");
-const path = require("path");
+
 const router = express.Router();
 router.use("/blogs/:blogid", (req, res) => {
-  res.sendFile(path.join(__dirname, "..//views/users", "blog-details.html"));
+  res.render("users/blog-details");
 });
 router.use("/blogs", (req, res) => {
-  res.sendFile(path.join(__dirname, "..//views/users", "blogs.html"));
+  res.render("users/blogs");
 });
 router.use("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "..//views/users", "index.html"));
+  res.render("users/index");
 });
 
 module.exports = router;

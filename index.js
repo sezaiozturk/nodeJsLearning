@@ -3,6 +3,7 @@ const userRoutes = require("./routes/user");
 const adminRoutes = require("./routes/admin");
 const path = require("path");
 const app = express();
+app.set("view engine", "ejs");
 
 /*app.use((req, res, next) => {
   console.log("middleware 1");
@@ -27,7 +28,7 @@ app.use("/", (req, res) => {
 */
 app.use("/libs", express.static(path.join(__dirname, "node_modules")));
 app.use("/static", express.static(path.join(__dirname, "public")));
-app.use(adminRoutes);
+app.use("/admin", adminRoutes);
 app.use(userRoutes);
 
 app.listen(3000, () => {
