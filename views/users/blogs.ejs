@@ -16,18 +16,11 @@
         <div class="col-md-3">
           <!-- menu -->
           <div class="list-group">
-            <a href="" class="list-group-item list-group-item-action active"
-              >Web Geliştirme</a
-            >
+            <% categories.forEach(element => { %>
             <a href="" class="list-group-item list-group-item-action"
-              >Mobil Uygulamalar</a
+              ><%= element.name %></a
             >
-            <a href="" class="list-group-item list-group-item-action"
-              >Veri Analizi</a
-            >
-            <a href="" class="list-group-item list-group-item-action"
-              >Programlama</a
-            >
+            <% }) %>
           </div>
         </div>
         <div class="col-md-9">
@@ -36,7 +29,11 @@
           <div class="card mb-3">
             <div class="row">
               <div class="col-md-4">
-                <img src="<%=element.photoUrl%>" class="img-fluid" alt="" />
+                <img
+                  src="/static/images/<%=element.photoUrl%>"
+                  class="img-fluid"
+                  alt=""
+                />
               </div>
               <div class="col-md-8">
                 <div class="card-body">

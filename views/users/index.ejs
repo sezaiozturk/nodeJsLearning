@@ -16,18 +16,22 @@
           <div class="list-group">
             <% categories.forEach(element => { %>
             <a href="" class="list-group-item list-group-item-action"
-              ><%= element %></a
+              ><%= element.name %></a
             >
             <% }) %>
           </div>
         </div>
         <div class="col-md-9">
           <h1 class="h3 mb-3"><%=title %></h1>
-          <% cards.forEach(element => { %> <% if (element.home) { %>
+          <% cards.forEach(element => { %>
           <div class="card mb-3">
             <div class="row">
               <div class="col-md-4">
-                <img src="<%=element.photoUrl%>" class="img-fluid" alt="" />
+                <img
+                  src="/static/images/<%=element.photoUrl%>"
+                  class="img-fluid"
+                  alt=""
+                />
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -37,7 +41,7 @@
               </div>
             </div>
           </div>
-          <% } %> <% }) %>
+          <% }) %>
         </div>
       </div>
     </div>
